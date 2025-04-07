@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation</title>
+    <script>
+        function validateMe(){
+            document.getElementById("valtech_age").setCustomValidity("Please fill this valtech age field!");
+        };
+        window.onload = validateMe;
+
+        function checkit(elm){
+            if(elm.value < 18){
+                elm.setCustomValidity("you are too young to join")
+            } else if(elm.value > 90){
+                elm.setCustomValidity("you are too old to join")
+            } else{
+                elm.setCustomValidity("")
+            }
+        }
+    </script>
+</head>
+<body>
+    <form action="#" method="get">
+       <table>
+        <tbody>
+            <tr>
+                <td>User name</td>
+                <td><input required name="userName" type="text"></td>
+            </tr>
+            <tr>
+                <td>User Email</td>
+                <!-- pattern="[a-z]+@[a-z]+.[a-z]" -->
+                <td><input  required name="userEmail" type="email"></td>
+            </tr>
+            <tr>
+                <td>User Phone</td>
+                <!-- placeholder="###-#######" -->
+                <td><input title="###-#######" required pattern="[0-9]{3}-[0-9]{7}" name="userPhone" type="tel"></td>
+            </tr>
+            <tr>
+                <td>User Age</td>
+                <td><input oninput="checkit(this)" id="valtech_age" required name="userAge"></td>
+                <!-- <td><input required min="18" max="90" name="userAge" type="number"></td> -->
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button style="width: 225px;">Click Me</button>
+                </td>
+            </tr>
+        </tbody>
+    </table> 
+    </form>
+</body>
+</html>

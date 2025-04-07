@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>SI#</th>
+                <th>Input Type</th>
+                <th>How its rendered in the browser</th>
+                <th>Output</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Text</td>
+                <td>
+                    <input oninput="writeit(this)" type="checkbox"> choose
+                </td>
+                <td><output id="checkbox"></output></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Password</td>
+                <td>
+                    <input oninput="writeit(this)" type="password">
+                </td>
+                <td><output id="password"></output></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Hidden</td>
+                <td>
+                    <input oninput="writeit(this)" type="hidden">
+                </td>
+                <td><output id="hidden"></output></td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Radio</td>
+                <td>
+                    <input oninput="writeit(this)" type="radio">
+                </td>
+                <td>
+                    <input oninput="writeit(this)" type="radio">
+                </td>
+                <td><output id="radio"></output></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Submit</td>
+                <td>
+                    <input oninput="writeit(this)" type="submit">
+                </td>
+                <td><output id="submit"></output></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>File</td>
+                <td>
+                    <input oninput="writeit(this)" type="file">
+                </td>
+                <td><output id="file"></output></td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Image</td>
+                <td>
+                    <input oninput="writeit(this)" type="image">
+                </td>
+                <td><output id="image"></output></td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Reset</td>
+                <td>
+                    <input oninput="writeit(this)" type="reset">
+                </td>
+                <td><output id="reset"></output></td>
+            </tr>
+            </tbody>
+    </table>
+    <script>
+        function writeit(elm){
+            document.getElementById(elm.type).value = elm.value;
+        };
+        writeit();
+    </script>
+</body>
+</html>

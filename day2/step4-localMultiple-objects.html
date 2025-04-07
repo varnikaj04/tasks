@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage step2</title>
+    <script>
+        function addUserInfo(){
+            var count = localStorage.length;
+            var key = document.getElementById("title").value;
+            var userobj = {
+                firstname : document.getElementById("fn").value,
+                lastname : document.getElementById("ln").value,
+                power: document.getElementById("pow").value
+            };
+            localStorage.setItem(JSON.stringify(key), JSON.stringify(userobj) );
+            document.getElementById("title").value = "";
+            document.getElementById("fn").value = "";
+            document.getElementById("ln").value = "";
+            document.getElementById("pow").value = 0;
+        }
+        function getCount(){
+            alert(localStorage.length);
+        }
+        function getHeroes(){
+           var count = localStorage.length;
+           var key = document.getElementById("title").value;
+           for(var i = 0; i < count; i++){
+            var currentHero = JSON.parse(localStorage.getItem(localStorage.key(i)));
+            console.log(currentHero.firstname+" "+currentHero.lastname+" "+currentHero.power);
+           }
+        };
+        function removeHero(){
+            var count = localStorage.length;
+            var key = document.getElementById("title").value;
+            for(var i = 0; i < count; i++){
+                var currentHero = JSON.parse(localStorage.getItem(localStorage.key(i)));
+                if(currentHero.firstname === document.getElementById("rmv").value){
+                    localStorage.removeItem(localStorage.key(i));
+                }
+            //    if(currentHero.firstname === "Steve"){
+            //     localStorage.removeItem(localStorage.key(i));
+            //    }
+            }
+        }
+        function allClear(){
+            localStorage.clear();
+            alert("all cleared");
+        }
+        function getKey(){
+            alert(localStorage.key(0));
+        }
+    </script>
+</head>
+<body>
+    <fieldset>
+        <legend>User Login Form</legend>
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Your First Name</th>
+                    <th>Your Last Name</th>
+                    <th>Power</th> 
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <input id="title" type="text">
+                    </td>
+                    <td>
+                        <input id="fn" type="text">
+                    </td>
+                    <td>
+                       <input id="ln" type="text">
+                    </td>
+                    <td>
+                        <input id="pow" type="range">
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button onclick="addUserInfo()">Add User Info</button>
+                    </td>
+                </tr>
+                <br>
+                <tr>
+                    <td>Remove Avenger</td>
+                    <td><input type="text" id="rmv"></td>
+                    <td>
+                         <button onclick="removeHero()">Remove Avenger</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </fieldset>
+   <!--  <button onclick="clickHandler()">Set User Name</button>
+    <button onclick="getHandler()">Get User Name</button> -->
+    <button onclick="getCount()">Number of items stored</button>
+    <br>
+    <button onclick="getHeroes()">Get All Avengers</button>
+    <br>
+    <button onclick="allClear()">All Clear </button>
+    <br>
+    <!-- <button onclick="getKey()">Get First Key</button> -->
+</body>
+</html>

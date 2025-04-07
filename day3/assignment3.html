@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Audio API</title>
+    <script>
+      var audio, timer;
+      window.onload = function () {
+        audio = document.getElementsByTagName("audio")[0];
+      };
+      function playaudio() {
+        audio.play();
+        if (timer === undefined) {
+          timer = setInterval(function () {
+            document.getElementById("log").value = audio.currentTime;
+            console.log(Math.random());
+          }, 100);
+        }
+      }
+      function pauseaudio() {
+        audio.pause();
+        clearInterval(timer);
+      }
+      function stopaudio() {
+        audio.pause();
+        audio.currentTime = 0;
+        document.getElementById("log").value = audio.currentTime;
+        clearInterval(timer);
+      }
+      function altervolume(elm) {
+        console.log("volume is changed!");
+        var sound = document.getElementById("vol")
+        var slider = document.getElementById(elm.id).value = elm.value;
+ 
+        sound.volume = slider;
+        // const input = document.querySelector("#vol");
+        // input.addEventListener("input", (event) => {
+        //     audio.onvolumechange();
+        //     console.log("volume changed");
+        // })
+    }
+    </script>
+  </head>
+  <body>
+    <audio controls>
+      <source src="media/enlivening.mp3" />
+    </audio>
+    <h1>Current Time : <output id="log"></output></h1>
+    <button onclick="playaudio()">Play</button>
+    <button onclick="stopaudio()">Stop</button>
+    <button onclick="pauseaudio()">Pause</button>
+    <input onchange="altervolume()" type="range" name="volume" id="vol" min="0" max="1" step="0.1"/>
+  </body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <script>
+      var data = [
+        {
+          id: 1,
+          name: "Hakka Noodles",
+          description:
+            "A vibrant and flavorful Indo-Chinese dish, Hakka Noodles are made with stir-fried noodles, fresh vegetables, and aromatic spices like garlic, ginger, and green chilies. Tossed in soy sauce and vinegar, these noodles are the perfect combination of savory, spicy, and tangy flavors.",
+          price: 449,
+          ingredients: [
+            "vegetables",
+            "sunflower oil",
+            "soya sauce",
+            "vinegar",
+            "garlic",
+            "ginger",
+            "green chillies",
+          ],
+          serves: 2,
+          nutritional_value: 372,
+          preparation_time: 35,
+        },
+        {
+          id: 2,
+          name: "Paneer Butter Masala",
+          description:
+            "A rich and creamy North Indian dish, Paneer Butter Masala features succulent cubes of paneer (Indian cottage cheese) simmered in a luscious tomato-based gravy with butter, cream, and a blend of fragrant spices such as garam masala and cumin. This dish is indulgent and perfect when paired with naan or rice.",
+          price: 0,
+          ingredients: [
+            "Paneer",
+            "Tomatoes",
+            "Onions",
+            "Cream",
+            "Butter",
+            "Garam Masala",
+          ],
+          serves: 2,
+          nutritional_value: 423,
+          preparation_time: 35,
+        },
+      ];
+    </script>
+  </head>
+  <body>
+    
+
+    <!-- <script>
+        function populateMenu() {
+            const container = document.getElementById('menu');
+
+            // Loop through each item in the data array
+            data.forEach(item => {
+                const menuItem = document.createElement('div');
+                menuItem.classList.add('menu-item');
+                
+                // Add content for each item
+                menuItem.innerHTML = `
+                    <h2>${item.name}</h2>
+                    <p><strong>Description:</strong> ${item.description}</p>
+                    <p><strong>Price:</strong> ₹${item.price || 'N/A'}</p>
+                    <p><strong>Serves:</strong> ${item.serves}</p>
+                    <p><strong>Nutritional Value:</strong> ${item.nutritional_value} kcal</p>
+                    <p><strong>Preparation Time:</strong> ${item.preparation_time} minutes</p>
+                    <div class="ingredients">
+                        <strong>Ingredients:</strong>
+                        <ul>
+                            ${item.ingredients.map(ingredient => `<li>${ingredient}</li>`).join('')}
+                        </ul>
+                    </div>
+                `;
+
+                // Append the menu item to the container
+                container.appendChild(menuItem);
+            });
+        }
+
+        // Call the function to populate the menu when the page loads
+        populateMenu();
+    </script> -->
+  </body>
+</html>
